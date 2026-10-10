@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API User Management</title>
+    <link rel="stylesheet" href="styleee.css">
+    <script src="scripttt.js" defer></script>
+</head>
+<body>
+    <main class="container">
+        <h1>User Management</h1>
+        <p class="subtitle">Users fetched from API</p>
+
+        <div class="controls">
+            <div>
+                <label for="statusFilter">Status:</label>
+                <select id="statusFilter">
+                    <option value="All">All</option>
+                    <option value="Active">Active</option>
+                    <option value="Inactive">Inactive</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="sortBy">Sort By:</label>
+                <select id="sortBy">
+                    <option value="az">Name A-Z</option>
+                    <option value="za">Name Z-A</option>
+                    <option value="newest">Newest</option>
+                    <option value="oldest">Oldest</option>
+                </select>
+            </div>
+        </div>
+
+        <p id="loading" role="status">Loading users...</p>
+
+        <div id="errorState" hidden>
+            <p>Unable to load users.</p>
+            <button id="retryBtn">Retry</button>
+        </div>
+
+        <p id="emptyState" hidden>No users found.</p>
+
+        <div id="tableContainer" hidden>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="userTable"></tbody>
+                </table>
+            </div>
+
+            <div class="pagination">
+                <button id="prevBtn">Previous</button>
+                <div id="pageNumbers"></div>
+                <button id="nextBtn">Next</button>
+            </div>
+
+            <p id="pageInfo"></p>
+        </div>
+    </main>
+</body>
+</html>
